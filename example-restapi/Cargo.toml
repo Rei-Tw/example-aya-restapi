@@ -1,0 +1,32 @@
+[package]
+name = "example-restapi"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+aya = { git = "https://github.com/aya-rs/aya", branch = "main", features=["async_tokio"] }
+aya-log = { git = "https://github.com/aya-rs/aya", branch = "main" }
+clap = { version = "4.1", features = ["derive"] }
+example-restapi-common = { path = "../example-restapi-common", features = ["user"] }
+anyhow = "1"
+env_logger = "0.10"
+libc = "0.2"
+log = "0.4"
+tokio = { version = "1.25", features = ["macros", "rt", "rt-multi-thread", "net", "signal"] }
+
+axum = { version = "0.6.1", features = ["headers"] }
+axum-macros = "0.3.0"
+axum-server = { version = "0.4", features = ["tls-rustls"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = { version = "1.0.89" }
+toml = "0.5.9"
+tower = "0.4.13"
+tower-http = { version = "0.4.0", features = ["full"] }
+tracing-subscriber = "0.3.16"
+tracing = "0.1.37"
+hyper = "0.14.23"
+
+[[bin]]
+name = "example-restapi"
+path = "src/main.rs"
